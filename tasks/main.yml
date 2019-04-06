@@ -1,0 +1,19 @@
+---
+  - name: JENKINS - install Jenkins 2.164.1 for CeontOS 7
+    yum:
+      name: https://pkg.jenkins.io/redhat-stable/jenkins-2.164.1-1.1.noarch.rpm
+      state: installed
+    when: ansible_os_family == "RedHat" and ansible_distribution_major_version == "7"
+    register: jenkins_result
+
+  - name: JENKINS - enable and start Jenkins service
+    systemd:
+      name: jenkins
+      enabled: yes
+      state: started
+
+#  - debug:
+#      var: jenkins_result
+
+#  - debug:
+#      var: hostvars
