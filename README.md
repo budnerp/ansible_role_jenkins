@@ -5,12 +5,16 @@ Ansible role for Jenkins 2.164.1 for CentOS 7
 1. Jenkins 2.164.1 under [192.168.33.11:8080](http://192.168.33.11:8080)
 
 ## Installation steps
-1. After successful machine provisioning navigate to [192.168.33.11:8080](http://192.168.33.11:8080). Initial admin passwrod is needed.
-2. SSH into `vagrant_ansible_jenkins` machine
+1. Set a domain in your hosts file (add a line in C:\Windows\System32\drivers\etc\hosts). Refer to Vagrantfile's web.vm.hostname configuration. Example:
+    ```
+    192.168.33.11 jenkins.local
+    ```
+2. Navigate to [jenkins.local:8080](http://jenkins.local:8080)
+3. Initial admin passwrod is available in `/var/lib/jenkins/secrets/initialAdminPassword` file
     ```
     vagrant ssh jenkins
+    sudo less /var/lib/jenkins/secrets/initialAdminPassword
     ```
-3. Get admin password from `/var/lib/jenkins/secrets/initialAdminPassword`
 4. Follow the installer 
 
 ## Interesting folders

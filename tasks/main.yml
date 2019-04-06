@@ -12,6 +12,13 @@
       enabled: yes
       state: started
 
+  - name: JENKINS - append vagrant user to jenkins group
+    user:
+      name: vagrant
+      groups: jenkins
+      append: yes
+      state: present
+
 #  - debug:
 #      var: jenkins_result
 
